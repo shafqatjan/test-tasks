@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 import { GenerateFormJsonComponent } from './generate-form-json/generate-form-json.component';
 import { Task2RoutingModule } from './task2-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CustomFieldComponent } from '../partialcomponents/custom-field/custom-field.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CustomFieldComponent } from '../components/custom-field/custom-field.component';
 
 
 @NgModule({

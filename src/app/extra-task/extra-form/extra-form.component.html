@@ -1,0 +1,27 @@
+<div class="container">
+      <legend>Dynamic form by ControlValueAccessor </legend>
+      <div class="row">
+            <div class="col col-md-12">
+
+                  <!-- {{mystudentforms | json}} -->
+                  <ng-container *ngIf="loaded">
+                        <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+                              <ng-container *ngIf="mystudentforms.length > 0">
+
+                                    <div *ngFor="let control of mystudentforms">
+                                          <app-form-field [mycontrol]="control" [parentForm]="myForm"></app-form-field>
+                                    </div>
+
+                              </ng-container>
+
+                              <button class="btn btn-primary" type="submit" [disabled]="myForm.invalid">Send</button>
+
+                        </form>
+                  </ng-container>
+            </div>
+      </div>
+
+
+
+
+</div>

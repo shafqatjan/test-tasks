@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { Task1RoutingModule } from './task1-routing.module';
 import { ReadCsvComponent } from './read-csv/read-csv.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CsvService } from '../services/csv.service';
 import { SearchFilterPipe } from '../pipes/search-filter-pipe';
-import { SortIconComponent } from '../partialcomponents/sort-icon/sort-icon.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { SortIconComponent } from '../components/sort-icon/sort-icon.component';
+import { UtilService } from '../services/util.service';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { FormsModule } from '@angular/forms';
     SortIconComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [CsvService],
+  providers: [UtilService],
   imports: [
     CommonModule,
     HttpClientModule,

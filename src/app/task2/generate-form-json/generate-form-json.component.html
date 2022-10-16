@@ -13,7 +13,7 @@
                                           <app-custom-field formControlName="{{control.name}}" [mycontrol]="control">
                                           </app-custom-field>
 
-                                          {{myForm.get(control.name)?.errors | json}}
+                                          <!-- {{myForm.get(control.name)?.errors | json}} -->
                                           <div *ngIf="formControl(control.name)?.invalid && (formControl(control.name)?.dirty || formControl(control.name)?.touched)"
                                                 style="color:red">
 

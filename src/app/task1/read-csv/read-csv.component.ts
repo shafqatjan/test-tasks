@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
-import { CsvService } from 'src/app/services/csv.service';
+import { UtilService } from 'src/app/services/util.service';
 @Component({
   selector: 'app-read-csv',
   templateUrl: './read-csv.component.html',
@@ -11,7 +11,7 @@ export class ReadCsvComponent implements OnInit {
   searchText: string;
   sortType = 'asc'
   headers: any = [];
-  constructor(private srv: CsvService) { }
+  constructor(private srv: UtilService) { }
   ngOnInit(): void {
     this.getData();
   }

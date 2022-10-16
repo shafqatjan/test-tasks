@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ExtraTaskComponent } from './extra-task.component';
+import { ExtraTaskComponent } from './extra-task/extra-task.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'read-json' },
