@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { ExtraFormComponent } from './extra-form.component';
 
@@ -8,7 +9,8 @@ describe('ExtraFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExtraFormComponent ]
+      declarations: [ ExtraFormComponent ],
+      imports: [SharedModule]
     })
     .compileComponents();
 

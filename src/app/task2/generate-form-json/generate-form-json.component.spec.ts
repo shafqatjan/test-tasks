@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { GenerateFormJsonComponent } from './generate-form-json.component';
 
@@ -8,7 +9,8 @@ describe('GenerateFormJsonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GenerateFormJsonComponent ]
+      declarations: [ GenerateFormJsonComponent ],
+      imports: [SharedModule]
     })
     .compileComponents();
 

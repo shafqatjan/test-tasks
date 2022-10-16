@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { ExtraTaskComponent } from './extra-task.component';
 
@@ -8,7 +9,8 @@ describe('ExtraTaskComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExtraTaskComponent ]
+      declarations: [ ExtraTaskComponent ],
+      imports: [SharedModule]
     })
     .compileComponents();
 

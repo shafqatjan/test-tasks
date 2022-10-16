@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { ReadCsvComponent } from './read-csv.component';
 
@@ -8,7 +9,8 @@ describe('ReadCsvComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReadCsvComponent ]
+      declarations: [ ReadCsvComponent ],
+      imports: [SharedModule]
     })
     .compileComponents();
 

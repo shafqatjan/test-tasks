@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { CustomFieldComponent } from './custom-field.component';
 
@@ -8,7 +9,8 @@ describe('CustomFieldComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CustomFieldComponent ]
+      declarations: [ CustomFieldComponent ],
+      imports: [SharedModule]
     })
     .compileComponents();
 
