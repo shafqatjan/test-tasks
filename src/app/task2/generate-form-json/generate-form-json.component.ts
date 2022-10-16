@@ -51,10 +51,8 @@ export class GenerateFormJsonComponent implements OnInit {
         this.myForm.addControl(element.name, new FormControl('', validations));
 
       });
-      console.log(this.myForm);
 
       const settings = studentForm.settings;
-      console.log(settings);
 
       const settingsKeys = Object.keys(settings);
       settingsKeys.forEach(key => {
@@ -79,7 +77,7 @@ export class GenerateFormJsonComponent implements OnInit {
           if (key === 'maxLength') {
             validations.push(Validators.maxLength(internalSettings.condition.value))
           }
-          console.log(key, validations);
+          // console.log(key, validations);
           this.formControl(internalSettings.condition.control).valueChanges.subscribe(data => {
             this.formControl(internalSettings.name).clearValidators();
 

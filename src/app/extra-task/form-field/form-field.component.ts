@@ -22,11 +22,14 @@ export class FormFieldComponent implements OnInit {
   ngOnInit(): void {
 
     this.loaded = true;
-    
-  }
-  formControl(name: any): FormControl  {
 
-    // console.log(name, this.parentForm.controls[name].errors)
+  }
+  toTitleCase(str: any) {
+    return str.toLowerCase().split(' ').map(function (word: any) {
+      return word.replace(word[0], word[0].toUpperCase());
+    }).join(' ');
+  }
+  formControl(name: any): FormControl {
     return this.parentForm.controls[name] as FormControl
   }
 

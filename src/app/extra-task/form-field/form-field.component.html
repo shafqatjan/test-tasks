@@ -1,6 +1,6 @@
 <ng-container *ngIf="loaded">
       <label *ngIf="mycontrol" [formGroup]="parentForm">
-            {{mycontrol.name}}:
+            {{toTitleCase(mycontrol.name)}}:
             <ng-container *ngIf="mycontrol.type == 'textfield' || mycontrol.type == 'email' || mycontrol.type == 'number'" >
                   <input type="{{mycontrol.type == 'number' ? 'number' : ''}}" formControlName="{{mycontrol.name}}" class="form-control">
             </ng-container>

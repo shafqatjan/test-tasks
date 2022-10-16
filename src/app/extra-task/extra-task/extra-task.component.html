@@ -2,6 +2,8 @@
 <div class="container">
 
       <h1> Display Data from Json File </h1>
+      <input type="text" [(ngModel)]="searchText">
+
       <table class="table table-striped">
             <thead>
                   <tr>
@@ -14,8 +16,8 @@
                   </tr>
             </thead>
             <tbody>
-                  <ng-container *ngIf="students.length>0; else NotFound">
-                        <tr *ngFor="let student of students">
+                  <ng-container *ngIf="(students | searchFilter: searchText ).length>0; else NotFound">
+                        <tr *ngFor="let student of students | searchFilter: searchText">
                               <td>{{ student.id }}</td>
                               <td>{{ student.name }}</td>
                               <td>{{ student.email }}</td>

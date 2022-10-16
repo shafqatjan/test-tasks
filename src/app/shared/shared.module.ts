@@ -18,7 +18,11 @@ import { UtilService } from '../services/util.service';
   exports: [
     SearchFilterPipe,
     SortIconComponent,
-    CustomFieldComponent
+    CustomFieldComponent,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    CommonModule
   ],
   providers: [UtilService],
   imports: [
