@@ -1,0 +1,58 @@
+<div class="container">
+      <legend>Dynamic form by ControlValueAccessor </legend>
+      <div class="row">
+            <div class="col col-md-12">
+
+                  <!-- {{mystudentforms | json}} -->
+                  <ng-container *ngIf="loaded">
+                        <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+                              <ng-container *ngIf="mystudentforms.length > 0">
+
+                                    <div *ngFor="let control of mystudentforms">
+
+                                          <app-custom-field formControlName="{{control.name}}" [mycontrol]="control">
+                                          </app-custom-field>
+
+                                          {{myForm.get(control.name)?.errors | json}}
+                                          <div *ngIf="formControl(control.name)?.invalid && (formControl(control.name)?.dirty || formControl(control.name)?.touched)"
+                                                style="color:red">
+
+                                                <ng-container *ngIf="formControl(control.name)?.hasError('required') ">
+                                                      Please provide a {{control.name}}.
+                                                </ng-container>
+                                                <ng-container *ngIf="formControl(control.name)?.hasError('email') ">
+                                                      Please provide a valid {{control.name}}.
+                                                </ng-container>
+                                                <ng-container
+                                                      *ngIf="formControl(control.name)?.hasError('min') || formControl(control.name)?.hasError('max') ">
+                                                      Please provide {{control.name}}
+                                                      <span *ngIf="formControl(control.name)?.hasError('min')">
+                                                            min:
+                                                            {{getObjectValue(formControl(control.name).errors,
+                                                            'min.min')}}
+                                                      </span>
+                                                      <span *ngIf="formControl(control.name)?.hasError('max')">
+                                                            max:
+                                                            {{getObjectValue(formControl(control.name).errors,
+                                                            'max.max')}}
+                                                      </span>
+                                                      character long.
+                                                </ng-container>
+                                          </div>
+                                    </div>
+
+
+                              </ng-container>
+
+                              <button class="btn btn-primary mt-2" type="submit"
+                                    [disabled]="myForm.invalid">Save</button>
+
+                        </form>
+                  </ng-container>
+            </div>
+      </div>
+
+
+
+
+</div>

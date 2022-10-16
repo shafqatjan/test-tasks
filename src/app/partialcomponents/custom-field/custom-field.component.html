@@ -1,0 +1,18 @@
+
+{{mycontrol.name}}:
+<ng-container *ngIf="mycontrol.type == 'textfield' || mycontrol.type == 'email' || mycontrol.type == 'number'">
+      <input type="{{mycontrol.type == 'number' ? 'number' : ''}}" [(ngModel)]="value" class="form-control">
+</ng-container>
+<ng-container *ngIf="mycontrol.type == 'password'">
+      <input type="password" [(ngModel)]="value" class="form-control">
+</ng-container>
+<ng-container *ngIf="mycontrol.type == 'select' || mycontrol.type == 'dropdown'">
+      <select class="form-select" [(ngModel)]="value">
+            <option *ngFor="let option of mycontrol.options" value="{{option.value}}">
+                  {{option.text}}
+            </option>
+      </select>
+</ng-container>
+<ng-container *ngIf="mycontrol.type == 'textarea'">
+      <textarea [(ngModel)]="value" rows="10" class="form-control" cols="30"></textarea>
+</ng-container>
