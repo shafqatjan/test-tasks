@@ -16,7 +16,7 @@ export class ReadCsvComponent implements OnInit {
     this.getData();
   }
   doSort(col: any) {
-    this.userArray = this.sortType == 'asc' ? _.sortBy(this.userArray, col) : _.sortBy(this.userArray, col).reverse();
+    this.userArray = this.sortType == 'asc' ? _.sortBy(this.userArray, `Headers.${col}`) : _.sortBy(this.userArray, `Headers.${col}`).reverse();
     this.sortType = this.sortType == 'asc' ? 'desc' : 'asc';
   }
   getData() {
@@ -27,17 +27,14 @@ export class ReadCsvComponent implements OnInit {
 
       list.forEach((e, index) => {
         let row = list[index].split(",");
-        console.log(row)
         if (index === 0) {
           this.headers = row;
-          // this.userArray.push(new User(this.headers));
         }
         else {
           this.userArray.push(new User(row));
         }
 
       });
-      console.log(this.userArray)
     });
 
   }
@@ -48,10 +45,7 @@ export class ReadCsvComponent implements OnInit {
 export class User {
   Headers: {};
 
-  constructor(
-    Headers: {}
-  ) {
-    console.log(Headers)
+  constructor(Headers: {}) {
     this.Headers = Headers;
   }
 }

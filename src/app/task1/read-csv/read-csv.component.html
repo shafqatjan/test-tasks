@@ -16,7 +16,7 @@
                   <table class="table table-striped">
                         <thead>
                               <tr>
-                                    <th scope="col" *ngFor="let header of headers" (click)="doSort(header)">
+                                    <th scope="col" *ngFor="let header of headers; let c = index;" (click)="doSort(c)">
                                           {{header}}
                                           <app-sort-icon [icon]="sortType"></app-sort-icon>
                                     </th>
@@ -26,8 +26,8 @@
 
                               <ng-container *ngIf="(userArray | searchFilter: searchText ).length>0; else NotFound">
 
-                                    <tr *ngFor="let student of userArray | searchFilter: searchText; let i= index;">
-                                          <!-- {{student.Headers | json }} -->
+                                    <tr *ngFor="let student of userArray | searchFilter: searchText;">
+
                                           <td *ngFor="let col of student.Headers">
 
                                                 {{col}}
