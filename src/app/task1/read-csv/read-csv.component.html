@@ -1,38 +1,47 @@
-<h2>Data Reading from CSV</h2>
-<div class="table-responsive">
-      <div class="row">
+<div class="row m-5">
 
-            <div class="col-sm-12 col-md-6 text-right">
-                  <label>Search:
-                        <input type="search" class="form-control form-control-sm"  [(ngModel)]="searchText">
-                  </label>
-            </div>
+      <div class="col-sm-12 col-md-10 text-left">
+            <h2>Data Reading from CSV</h2>
       </div>
-      <table class="table table-striped">
-            <thead>
-                  <tr>
-                        <th scope="col" *ngFor="let header of headers" (click)="doSort(header)">
-                              {{header}}
-                              <app-sort-icon [icon]="sortType"></app-sort-icon>
-                        </th>
-                  </tr>
-            </thead>
-            <tbody>
-                  <ng-container *ngIf="(userArray | searchFilter: searchText ).length>0; else NotFound">
-                        <tr *ngFor="let student of userArray | searchFilter: searchText">
-                              <td>{{ student.Id }}</td>
-                              <td>{{ student.InternalId }}</td>
-                              <td>{{ student.Type }}</td>
-                              <td>{{ student.Billing }}</td>
-                              <td>{{ student.Email }}</td>
-                              <td>{{ student.Provider }}</td>
-                              <td>{{ student.State }}</td>
-                              <td>{{ student.Trial }}</td>
-                        </tr>
-                  </ng-container>
-                  <ng-template #NotFound>
-                        No Record found
-                  </ng-template>
-            </tbody>
-      </table>
+      <div class="col-sm-12 col-md-2 text-right">
+
+            <label>Search:
+                  <input type="search" class="form-control form-control-sm" [(ngModel)]="searchText">
+            </label>
+      </div>
+</div>
+<div class="row m-5">
+      <div class="col-md-12">
+            <div class="table-responsive">
+                  <table class="table table-striped">
+                        <thead>
+                              <tr>
+                                    <th scope="col" *ngFor="let header of headers" (click)="doSort(header)">
+                                          {{header}}
+                                          <app-sort-icon [icon]="sortType"></app-sort-icon>
+                                    </th>
+                              </tr>
+                        </thead>
+                        <tbody>
+
+                              <ng-container *ngIf="(userArray | searchFilter: searchText ).length>0; else NotFound">
+
+                                    <tr *ngFor="let student of userArray | searchFilter: searchText; let i= index;">
+                                          <!-- {{student.Headers | json }} -->
+                                          <td *ngFor="let col of student.Headers">
+
+                                                {{col}}
+
+                                          </td>
+                                    </tr>
+
+                              </ng-container>
+                              <ng-template #NotFound>
+                                    No Record found
+                              </ng-template>
+                        </tbody>
+                  </table>
+            </div>
+
+      </div>
 </div>

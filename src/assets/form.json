@@ -51,6 +51,14 @@
 				"operator": ">=",
 				"value": 3
 			}
+		},
+		"min": {
+			"name": "Experience",
+			"condition": {
+				"control": "Age",
+				"operator": ">=",
+				"value": 25
+			}
 		}
 	}
 }

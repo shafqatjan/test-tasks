@@ -1,28 +1,28 @@
-<div class="container">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" routerLink="/">{{title}}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+  <a class="navbar-brand" routerLink="/">{{title}}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="{exact: true}">
+        <a class="nav-link" routerLink="/task1/read-csv" routerLinkActive="{exact: true}">Task1 Read from CSV</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/task2/generate-form-json" routerLinkActive="{exact: true}">Task2 Generate
+          Form from JSON</a>
+      </li>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item" routerLinkActive="{exact: true}">
-          <a class="nav-link" routerLink="/task1/read-csv" routerLinkActive="{exact: true}">Task1 Read from CSV</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/task2/generate-form-json" routerLinkActive="{exact: true}">Task2 Generate
-            Form from JSON</a>
-        </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/extra-task/read-json" routerLinkActive="{exact: true}">Extra Task </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="jumbotron">
 
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/extra-task/read-json" routerLinkActive="{exact: true}">Extra Task </a>
-        </li>
-
-      </ul>
-    </div>
-  </nav>
   <router-outlet></router-outlet>
+
 
 </div>

@@ -27,25 +27,17 @@ export class ReadCsvComponent implements OnInit {
 
       list.forEach((e, index) => {
         let row = list[index].split(",");
-
+        console.log(row)
         if (index === 0) {
           this.headers = row;
+          // this.userArray.push(new User(this.headers));
         }
         else {
-          this.userArray.push(new User(
-            row[0],
-            row[1],
-            row[2],
-            row[3],
-            row[4],
-            row[5],
-            row[6],
-            row[7]
-          ));
+          this.userArray.push(new User(row));
         }
 
       });
-      // console.log(this.userArray)
+      console.log(this.userArray)
     });
 
   }
@@ -54,29 +46,12 @@ export class ReadCsvComponent implements OnInit {
   }
 }
 export class User {
-  Id: String;
-  InternalId: String;
-  Type: String;
-  Billing: String;
-  Email: String;
-  Provider: String;
-  State: String;
-  Trial: String;
+  Headers: {};
+
   constructor(
-    Id: String,
-    InternalId: String,
-    Type: String, Billing: String, Email: String, Provider: String, State: String,
-    Trial: String
+    Headers: {}
   ) {
-    this.Id = Id;
-    this.InternalId = InternalId;
-    this.Type = Type;
-    this.Billing = Billing;
-    this.Email = Email;
-    this.Provider = Provider;
-    this.State = State;
-    this.Trial = Trial;
-
+    console.log(Headers)
+    this.Headers = Headers;
   }
-
 }
